@@ -1,0 +1,17 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: springBoot-rabbitmq
+  rabbitmq:
+    virtual-host: testHost
+    host: 192.168.120.100
+    port: 5672
+    username: wangzhiming
+    password: wangtian520+
+logging:
+  path: F:/
+  level:
+    boot:
+      spring: DEBUG
+
