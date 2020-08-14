@@ -1,4 +1,4 @@
-package com.wang.rabbitMQ.listener;
+package com.wang.rabbitmq.listener;
 
 import com.wang.po.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

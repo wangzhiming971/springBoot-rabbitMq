@@ -21,7 +21,7 @@ public class ConsumerImpl implements Consumer {
      */
     @Override
     public void publishMessage(Message message) {
-        rabbitTemplate.convertAndSend("fanout",message);
+        rabbitTemplate.convertAndSend("fanout","",message);
     }
 
     /**

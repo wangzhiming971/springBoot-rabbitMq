@@ -16,33 +16,39 @@ import org.springframework.context.annotation.Configuration;
 public class DirectExchangeConfig {
     @Bean
     public DirectExchange directExchange(){
-        return new DirectExchange("direct");
-    }
-    @Bean
-    public Queue directQueue(){
-        return  new Queue("directQueue");
+        DirectExchange directExchange=new DirectExchange("direct");
+        return directExchange;
     }
 
     @Bean
-    public Queue directQueue1(){
-        return  new Queue("directQueue1");
+    public Queue directQueue1() {
+        Queue queue=new Queue("directQueue");
+        return queue;
     }
 
     @Bean
-    public Binding bindingOrange(){
-        Binding binding=BindingBuilder.bind(directQueue()).to(directExchange()).with("orange");
+    public Queue directQueue2() {
+        Queue queue=new Queue("directQueue1");
+        return queue;
+    }
+
+    //3个binding将交换机和相应队列连起来
+    @Bean
+    public Binding bindingorange(){
+        Binding binding=BindingBuilder.bind(directQueue1()).to(directExchange()).with("orange");
         return binding;
     }
 
     @Bean
-    public Binding bindingBlack(){
-        Binding binding=BindingBuilder.bind(directQueue1()).to(directExchange()).with("black");
+    public Binding bindingblack(){
+        Binding binding=BindingBuilder.bind(directQueue2()).to(directExchange()).with("black");
         return binding;
     }
 
     @Bean
-    public Binding bindingGreen(){
-        Binding binding=BindingBuilder.bind(directQueue1()).to(directExchange()).with("green");
+    public Binding bindinggreen(){
+        Binding binding=BindingBuilder.bind(directQueue2()).to(directExchange()).with("green");
         return binding;
     }
+
 }

@@ -38,7 +38,7 @@ public class PublishSubscribeConfig {
 
     @Bean
     public Binding binding2(){
-        Binding binding =  BindingBuilder.bind(fanoutQueue()).to(fanoutExchange());
+        Binding binding =  BindingBuilder.bind(fanoutQueue1()).to(fanoutExchange());
         return binding;
     }
 

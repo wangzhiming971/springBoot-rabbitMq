@@ -33,7 +33,7 @@ public class RabbitMqController {
         publisher.sendDirectMessage(message1,message.getRoutingkey());
     }
 
-    @RequestMapping(value="/topic",produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value="/found",produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public void topic(@ModelAttribute("message") Message message){
         publisher.publishMessage(message);
